@@ -7,6 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class UnsplashPhoto(
     val id: String,
+    val width: Int,
+    val height: Int,
+    val likes: Int,
     val description: String?,
     val urls: UnsplashPhotoUrls,
     val user: UnsplashUser

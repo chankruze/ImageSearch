@@ -62,6 +62,9 @@ class UnsplashPhotoAdapter(private val listener: OnItemClickListener) :
 
                 // set username
                 textViewUsername.text = photo.user.username
+
+                // set likes count
+                textViewLikes.text = photo.likes.toString()
             }
         }
     }

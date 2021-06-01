@@ -1,14 +1,23 @@
 package `in`.geekofia.imagesearch.ui.details
 
 import `in`.geekofia.imagesearch.R
+import `in`.geekofia.imagesearch.databinding.BottomSheetDialogDownloadBinding
 import `in`.geekofia.imagesearch.databinding.FragmentDetailsBinding
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -69,8 +78,32 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 }
                 paint.isUnderlineText = true
             }
-
-
         }
+
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_details, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_download -> {
+                val manager: FragmentManager =
+                    (context as AppCompatActivity).supportFragmentManager
+
+                DownloadBottomSheetDialogFragment(args.photo).show(
+                    manager,
+                    DownloadBottomSheetDialogFragment.TAG
+                )
+            }
+            R.id.action_share -> Toast.makeText(context, "Share clicked", Toast.LENGTH_LONG).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun showBottomSheetDialogDownload() {
+
     }
 }

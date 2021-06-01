@@ -30,5 +30,20 @@
         app:drawableStartCompat="@drawable/ic_user"
         tools:text="username" />
 
+    <TextView
+        android:id="@+id/text_view_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_view_thumbnail"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:textColor="#fff"
+        app:drawableStartCompat="@drawable/ic_likes"
+        tools:text="226" />
+
 
 </RelativeLayout>
