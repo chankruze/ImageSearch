@@ -1,20 +1,19 @@
 package `in`.geekofia.imagesearch.ui.gallery
 
 import `in`.geekofia.imagesearch.data.UnsplashRepository
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.cachedIn
+import dagger.assisted.Assisted
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class GalleryViewModel @Inject constructor(
-    private val repository: UnsplashRepository
+    private val repository: UnsplashRepository,
+    state: SavedStateHandle
 ) : ViewModel() {
     // current query
-    private val currentQuery = MutableLiveData(DEFAULT_QUERY)
+    private val currentQuery = state.getLiveData(CURRENT_QUERY, DEFAULT_QUERY)
 
     // get photos from repository and update livedata in view model scope
     // to avoid crash on orientation changes
@@ -26,6 +25,7 @@ class GalleryViewModel @Inject constructor(
 
     // default query
     companion object {
+        private const val CURRENT_QUERY = "current_query"
         private const val DEFAULT_QUERY = "dogs"
     }
 }
