@@ -1,20 +1,20 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = "1.4.31"
-        navigation_version = '2.3.5'
-        hilt_version = '2.28.3-alpha'
+        kotlinVersion = "1.5.10"
+        navigationVersion = '2.3.5'
+        hiltVersion = '2.36'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath("com.android.tools.build:gradle:4.2.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:$hiltVersion")
     }
 }
 
@@ -32,21 +32,23 @@ task clean(type: Delete) {
 // Define versions in a single place
 ext {
     // Sdk and tools
-    minSdk_version = 21
-    targetSdk_version = 30
-    compileSdk_version = 30
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.3"
     versionCode = 1
     versionName = "0.0.0"
 
     // App dependencies
-    appCompat_version = '1.2.0'
-    constraintLayout_version = '1.1.3'
-    espresso_version = '3.2.0'
-    glide_version = '4.11.0'
-    hiltAndroidX_version = '1.0.0-alpha03'
-    junit_version = '4.13'
-    ktx_version = '1.3.1'
-    paging_version = '3.0.0'
-    retrofit_version = '2.9.0'
-    testExtJunit_version = '1.1.1'
+    appCompatVersion = '1.2.0'
+    constraintLayoutVersion = '1.1.3'
+    espressoVersion = '3.2.0'
+    glideVersion = '4.11.0'
+    hiltAndroidXVersion = '1.0.0'
+    hiltLifecycleViewmodelVersion = '1.0.0-alpha03'
+    junitVersion = '4.13'
+    ktxVersion = '1.3.1'
+    pagingVersion = '3.0.0'
+    retrofitVersion = '2.9.0'
+    testExtJunitVersion = '1.1.1'
 }
